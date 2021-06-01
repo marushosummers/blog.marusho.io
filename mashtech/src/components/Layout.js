@@ -1,88 +1,65 @@
-import React, { Fragment } from 'react'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import Meta from './Meta'
-import Nav from './Nav'
-import Footer from './Footer'
-import GithubCorner from './GithubCorner'
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { useStaticQuery, graphql } from "gatsby"
 
-import 'modern-normalize/modern-normalize.css'
-import './globalStyles.css'
+import Header from "./header"
+import Logo from "./logo"
+import Navigation from "./navigation"
 
-export default ({ children, meta, title }) => {
+import "../assets/scss/style.scss"
+import Footer from "./footer"
+import Theme from "../components/theme"
+import Search from "../components/search"
+
+const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        siteTitle: title
+      }
+    }
+    siteSearchIndex {
+      index
+    }
+  }
+`
+
+const Layout = ({ children, className, props }) => {
+  const { site, siteSearchIndex } = useStaticQuery(query)
+  const { siteTitle } = site.siteMetadata
+
   return (
-    <StaticQuery
-      query={graphql`
-        query IndexLayoutQuery {
-          settingsYaml {
-            siteTitle
-            siteDescription
-            googleTrackingId
-            socialMediaCard {
-              image
-            }
-          }
-          allPosts: allMarkdownRemark(
-            filter: { fields: { contentType: { eq: "postCategories" } } }
-            sort: { order: DESC, fields: [frontmatter___date] }
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={data => {
-        const { siteTitle, socialMediaCard, googleTrackingId } =
-            data.settingsYaml || {},
-          subNav = {
-            posts: data.allPosts.hasOwnProperty('edges')
-              ? data.allPosts.edges.map(post => {
-                  return { ...post.node.fields, ...post.node.frontmatter }
-                })
-              : false
-          }
-
-        return (
-          <Fragment>
-            <Helmet
-              defaultTitle={siteTitle}
-              titleTemplate={`%s | ${siteTitle}`}
-            >
-              {title}
-              <link href="https://ucarecdn.com" rel="preconnect" crossorigin />
-              <link rel="dns-prefetch" href="https://ucarecdn.com" />
-              {/* Add font link tags here */}
-            </Helmet>
-
-            <Meta
-              googleTrackingId={googleTrackingId}
-              absoluteImageUrl={
-                socialMediaCard &&
-                socialMediaCard.image &&
-                socialMediaCard.image
-              }
-              {...meta}
-              {...data.settingsYaml}
-            />
-
-            <GithubCorner url="https://github.com/thriveweb/yellowcake" />
-
-            <Nav subNav={subNav} />
-
-            <Fragment>{children}</Fragment>
-
-            <Footer />
-          </Fragment>
-        )
-      }}
-    />
+    <div className="primary-container">
+      <Header>
+        <Logo title={siteTitle} />
+        <div sx={layoutStyle.nav}>
+          <div sx={{ display: ["flex", "flex", "flex", "none"] }}>
+            <Search searchIndex={siteSearchIndex.index} />
+          </div>
+          <Navigation />
+        </div>
+        <div sx={layoutStyle.appearance}>
+          <Search searchIndex={siteSearchIndex.index} />
+          <Theme />
+        </div>
+      </Header>
+      <main className={"container " + className}>{children}</main>
+      <Footer />
+    </div>
   )
+}
+
+export default Layout
+
+const layoutStyle = {
+  appearance: {
+    display: ["none", "none", "none", "flex"],
+    alignItems: "center",
+    gap: 4,
+  },
+  nav: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+  },
 }

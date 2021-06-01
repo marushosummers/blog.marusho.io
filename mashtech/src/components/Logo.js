@@ -1,11 +1,10 @@
-import React from 'react'
-import './Logo.css'
+import React from "react"
+import { Link } from "gatsby"
 
-export default () => (
-  <div
-    className="Logo"
-    style={{
-      backgroundImage: `url(/images/logo.svg)`
-    }}
-  />
+const Logo = props => (
+  <div className="site-logo">
+    <Link to="/">{props.title}</Link>
+  </div>
 )
+
+export default Logo
