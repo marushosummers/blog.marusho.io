@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  blog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blog
+    platform: linux/amd64
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/home/node/app
+    environment:
+      - NODE_ENV=development
+    stdin_open: true
