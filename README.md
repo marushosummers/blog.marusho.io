@@ -14,11 +14,11 @@ make enter
 
 ### Gatsby Starterの利用
 
-- Starterは[gatsby-starter-foundation](https://github.com/stackrole/gatsby-starter-foundation) を利用しています
+- Starterは[gatsby-starter-delog](https://github.com/W3Layouts/gatsby-starter-delog) を利用しています
 ```
 npm install -g gatsby-cli
 
-gatsby new mashtech https://github.com/stackrole/gatsby-starter-foundation
+gatsby new mashtech https://github.com/W3Layouts/gatsby-starter-delog
 
 ```
 
