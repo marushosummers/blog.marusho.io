@@ -1,25 +1,20 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import { Link } from "gatsby"
-import { RiHeart2Line } from "react-icons/ri"
+import React from 'react'
+import './Footer.css'
 
-const Footer = () => (
-  <footer
-    className="site-footer"
-    sx={{
-      bg: "siteColor",
-    }}
-  >
-    <div className="container">
-      <p>
-        A GatsbyJS Starter for Netlify CMS, Made with{" "}
-        <span className="icon -love">
-          <RiHeart2Line />
-        </span>{" "}
-        by <Link to="/">Stackrole.com</Link>
-      </p>
-    </div>
-  </footer>
+export default () => (
+  <div>
+    <h2 className="taCenter">
+      Follow us{' '}
+      <a href="https://instagram.com/thrivegoldcoast/">@thrivegoldcoast</a>
+    </h2>
+    <br />
+    <footer className="footer">
+      <div className="container taCenter">
+        <span>
+          © Copyright {new Date().getFullYear()} All rights reserved. Crafted by{' '}
+          <a href="https://thriveweb.com.au/">Thrive</a>.
+        </span>
+      </div>
+    </footer>
+  </div>
 )
-
-export default Footer

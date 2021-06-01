@@ -1,88 +1,119 @@
-const path = require("path")
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const _ = require('lodash')
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const blogList = path.resolve(`./src/templates/blog-list.js`)
-
-  const result = await graphql(`
+  return graphql(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      allMarkdownRemark(limit: 1000) {
         edges {
           node {
             id
             frontmatter {
-              slug
               template
               title
+            }
+            fields {
+              slug
+              contentType
             }
           }
         }
       }
     }
-  `)
-
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
-  }
-
-  // Create markdown pages
-  const posts = result.data.allMarkdownRemark.edges
-  let blogPostsCount = 0
-
-  posts.forEach((post, index) => {
-    const id = post.node.id
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
-
-    createPage({
-      path: post.node.frontmatter.slug,
-      component: path.resolve(
-        `src/templates/${String(post.node.frontmatter.template)}.js`
-      ),
-      // additional data can be passed via context
-      context: {
-        id,
-        previous,
-        next,
-      },
-    })
-
-    // Count blog posts.
-    if (post.node.frontmatter.template === "blog-post") {
-      blogPostsCount++
+  `).then(result => {
+    if (result.errors) {
+      result.errors.forEach(e => console.error(e.toString()))
+      return Promise.reject(result.errors)
     }
-  })
 
-  // Create blog-list pages
-  const postsPerPage = 9
-  const numPages = Math.ceil(blogPostsCount / postsPerPage)
+    const mdFiles = result.data.allMarkdownRemark.edges
 
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: blogList,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
+    const contentTypes = _.groupBy(mdFiles, 'node.fields.contentType')
+
+    _.each(contentTypes, (pages, contentType) => {
+      const pagesToCreate = pages.filter(page =>
+        // get pages with template field
+        _.get(page, `node.frontmatter.template`)
+      )
+      if (!pagesToCreate.length) return console.log(`Skipping ${contentType}`)
+
+      console.log(`Creating ${pagesToCreate.length} ${contentType}`)
+
+      pagesToCreate.forEach((page, index) => {
+        const id = page.node.id
+        createPage({
+          // page slug set in md frontmatter
+          path: page.node.fields.slug,
+          component: path.resolve(
+            `src/templates/${String(page.node.frontmatter.template)}.js`
+          ),
+          // additional data can be passed via context
+          context: {
+            id
+          }
+        })
+      })
     })
   })
 }
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
+
+  // convert frontmatter images
+  fmImagesToRelative(node)
+
+  // Create smart slugs
+  // https://github.com/Vagr9K/gatsby-advanced-starter/blob/master/gatsby-node.js
+  let slug
+  if (node.internal.type === 'MarkdownRemark') {
+    const fileNode = getNode(node.parent)
+    const parsedFilePath = path.parse(fileNode.relativePath)
+
+    if (_.get(node, 'frontmatter.slug')) {
+      slug = `/${node.frontmatter.slug.toLowerCase()}/`
+    } else if (
+      // home page gets root slug
+      parsedFilePath.name === 'home' &&
+      parsedFilePath.dir === 'pages'
+    ) {
+      slug = `/`
+    } else if (_.get(node, 'frontmatter.title')) {
+      slug = `/${_.kebabCase(parsedFilePath.dir)}/${_.kebabCase(
+        node.frontmatter.title
+      )}/`
+    } else if (parsedFilePath.dir === '') {
+      slug = `/${parsedFilePath.name}/`
+    } else {
+      slug = `/${parsedFilePath.dir}/`
+    }
+
     createNodeField({
       node,
-      name: `slug`,
-      value: slug,
+      name: 'slug',
+      value: slug
+    })
+
+    // Add contentType to node.fields
+    createNodeField({
+      node,
+      name: 'contentType',
+      value: parsedFilePath.dir
     })
   }
 }
+
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+  if (getConfig().mode === 'production') {
+    actions.setWebpackConfig({
+      devtool: false
+    });
+  }
+};
+
+// Random fix for https://github.com/gatsbyjs/gatsby/issues/5700
+module.exports.resolvableExtensions = () => ['.json']

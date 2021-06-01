@@ -14,11 +14,12 @@ make enter
 
 ### Gatsby Starterの利用
 
-- Starterは[gatsby-starter-foundation](https://www.gatsbyjs.com/starters/stackrole/gatsby-starter-foundation) を利用しています
+- Starterは[yellowcake](https://github.com/thriveweb/yellowcake) を利用しています
 ```
 npm install -g gatsby-cli
 
-gatsby new blog.marusho.io https://github.com/stackrole/gatsby-starter-foundation
+gatsby new blog.marusho.io https://github.com/thriveweb/yellowcake
+
 ```
 
 ### localでの立ち上げ

@@ -1,9 +1,6 @@
 [build]
   publish = "public"
   command = "npm run build"
-  
 [build.environment]
-  NODE_VERSION = "12"
-
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
+  YARN_VERSION = "1.3.2"
+  YARN_FLAGS = "--no-ignore-optional"

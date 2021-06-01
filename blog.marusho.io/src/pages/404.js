@@ -1,41 +1,40 @@
-import React from "react"
-import { Link } from "gatsby"
-import { RiArrowLeftSLine, RiBugLine, RiSkullLine } from "react-icons/ri"
+import React from 'react'
+import Helmet from 'react-helmet'
+import { Link, StaticQuery, graphql } from 'gatsby'
+import _get from 'lodash/get'
+import AlertTriangle from 'react-feather/dist/icons/alert-triangle'
 
-import Seo from "../components/seo"
-import Layout from "../components/layout"
+import Layout from '../components/Layout'
 
-const NotFound = () => (
-  <Layout className="not-found-page">
-    <Seo title="Page not found" />
-    <div
-      className="wrapper"
-      style={{
-        textAlign: "center",
-      }}
-    >
-      <header>
-        <RiSkullLine
-          style={{
-            fontSize: "128px",
-            color: "var(--primary-color)",
-          }}
-        />
-        <h1>Oops we did not expect that to happen</h1>
-        <p>
-          Have you wondered into the unknow. Let us help you, Please take a look
-          at below options
-        </p>
-      </header>
-      <Link to="/" className="button">
-        <RiArrowLeftSLine className="icon -left" />
-        Back to Homepage
-      </Link>
-      <Link to="/contact" className="button -outline">
-        Report this <RiBugLine className="icon -right" />
-      </Link>
-    </div>
-  </Layout>
+export default ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query NotFoundPageQuery {
+        globalSettings: settingsYaml {
+          siteTitle
+        }
+      }
+    `}
+    render={data => (
+      <Layout>
+        <Helmet>
+          <title>404 – Page Not Found</title>
+        </Helmet>
+        <section className="section thick">
+          <div className="container skinny taCenter">
+            <p>
+              <AlertTriangle size="5rem" />
+            </p>
+            <h1>404 - Page Not Found</h1>
+            <p>
+              We can't find the page you are looking for!
+              <br />
+              Head back to{' '}
+              <Link to="/">{_get(data, 'globalSettings.siteTitle')}</Link>
+            </p>
+          </div>
+        </section>
+      </Layout>
+    )}
+  />
 )
-
-export default NotFound
