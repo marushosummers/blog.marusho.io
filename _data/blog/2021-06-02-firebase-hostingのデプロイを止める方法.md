@@ -3,7 +3,7 @@ template: BlogPost
 path: /stop-firebase-hosting
 date: 2021-06-02T02:35:42.774Z
 title: firebase hostingのデプロイを止める
-thumbnail: /assets/code1211IMGL1494_TP_V4.jpg
+thumbnail: /assets/mac.jpg
 ---
 ```bash
 firebase hosting:disable
