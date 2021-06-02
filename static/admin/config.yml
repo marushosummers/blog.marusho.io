@@ -4,6 +4,8 @@ backend:
   repo: marushosummers/blog.marusho.io
   branch: main
 
+publish_mode: editorial_workflow
+
 media_folder: static/assets
 public_folder: /assets
 
