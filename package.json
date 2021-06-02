@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-delog",
-  "description": "A simplified blog for developers and designer. This starter built with Gatsby and Netlify CMS",
+  "name": "blog",
+  "description": "",
   "author": "W3Layouts Team <info@w3layouts.com>",
   "version": "1.6.0",
   "license": "MIT",
@@ -32,10 +32,7 @@
     "prettier": "^1.19.1"
   },
   "homepage": "https://github.com/W3Layouts/gatsby-starter-delog#readme",
-  "keywords": [
-    "gatsby",
-    "netlify cms"
-  ],
+  "keywords": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/W3Layouts/gatsby-starter-delog.git"
