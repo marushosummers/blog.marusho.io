@@ -1,7 +1,7 @@
 backend:
   name: github
   # change repo to your git repository url
-  repo: marushosummers/blog.marusho.io
+  repo: 'marushosummers/blog.marusho.io'
 
 media_folder: static/assets
 public_folder: /assets
