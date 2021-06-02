@@ -9,9 +9,9 @@ body {
   margin-top: 0
 }
 body.light {
-  --primary-color: #381696;
+  --primary-color: rgb(100, 93, 28);
   --primary-text-color: #fff;
-  --featured-bg: #493b8a;
+  --featured-bg: rgb(141, 131, 39);
   --featured-text: #fff;
   --secondary-color: #10072b;
   --background: #fff;
@@ -23,29 +23,29 @@ body.light {
   --btn-bdr: #d3d6e7;
   --btn-text-color: #868892;
   --btn-hover-bg: var(--btn-bdr);
-  --btn-hover-text-color: #00062b;
+  --btn-hover-text-color: rgb(7, 8, 5);
   --contact-bg: #f7f8fe;
   --contact-bdr: #d3d6e7;
   --input-bg: var(--background);
 }
 body.dark {
-  --primary-color: #9984d5;
+  --primary-color: #C4BF38;
   --primary-text-color: #fff;
-  --featured-bg: #66578d;
+  --featured-bg: #AEA851;
   --featured-text: #fff;
-  --secondary-color: #66578d;
-  --background: #0A041A;
+  --secondary-color: rgb(116, 112, 10);
+  --background: rgb(24, 32, 5);
   --text-color: rgba(255,255,255,0.88);
   --text-secondary-color: rgba(255,255,255,0.66);
   --site-header: var(--background);
-  --card-bg: #181326;
-  --card-bdr: #181326;
-  --card-shadow: #020204;
+  --card-bg: rgb(44, 49, 33);
+  --card-bdr: rgb(44, 49, 33);
+  --card-shadow: rgb(7, 8, 5);
   --btn-bg: var(--background);
   --btn-bdr: #d3d6e7;
   --btn-text-color: #868892;
   --btn-hover-bg: var(--btn-bdr);
-  --btn-hover-text-color: #00062b;
+  --btn-hover-text-color: rgb(7, 8, 5);
   --contact-bg: var(--card-shadow);
   --contact-bdr: var(--card-bg);
   --input-bg: var(--card-bg);
