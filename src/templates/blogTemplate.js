@@ -18,10 +18,10 @@ export default function Template({
 					{frontmatter.title} | {siteMetadata.title}
 				</title>
 				<meta name="description" content={frontmatter.metaDescription} />
-				<meta property="og:site_name" content={frontmatter.title} />
+				<meta property="og:site_name" content={siteMetadata.title} />
 				<meta
 					property="og:image"
-					content={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}
+					content={`${data.site.siteMetadata.siteUrl}${ogp_image}`}
 				/>
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content={frontmatter.title} />
@@ -31,7 +31,7 @@ export default function Template({
 				/>
 				<meta
 					name="twitter:image"
-					content={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}
+					content={`${data.site.siteMetadata.siteUrl}${ogp_image}`}
 				/>
 			</Helmet>
 			<div className="blog-post-container">
