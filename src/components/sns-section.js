@@ -10,18 +10,30 @@ import {
 
 const SNSSection = ({ title, articleUrl }) => {
 	return (
-		<div>
-			<FacebookShareButton url={articleUrl}>
-				<FacebookIcon size={30} round />
-			</FacebookShareButton>
-
-			<LineShareButton url={articleUrl}>
-				<LineIcon size={30} round />
-			</LineShareButton>
-
-			<TwitterShareButton title={title} via="@marusho_summers" url={articleUrl}>
-				<TwitterIcon size={30} round />
-			</TwitterShareButton>
+		<div className="share">
+			<div className="share_icon">
+				<FacebookShareButton url={articleUrl}>
+					<FacebookIcon size={28} round bgStyle={{fill: "black"}}/>
+				</FacebookShareButton>
+			</div>
+			<div className="share_icon">
+				<LineShareButton url={articleUrl}>
+					<LineIcon size={28} round bgStyle={{fill: "black"}}/>
+				</LineShareButton>
+			</div>
+			<div className="share_icon">
+				<TwitterShareButton
+					title={title}
+					via="marusho_summers"
+					url={articleUrl}
+				>
+					<TwitterIcon
+						size={28}
+						round
+						bgStyle={{fill: "black"}}
+					/>
+				</TwitterShareButton>
+			</div>
 		</div>
 	);
 };

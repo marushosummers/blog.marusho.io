@@ -40,8 +40,11 @@ export default function Template({
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
 				</article>
+				<SNSSection
+					title={frontmatter.title}
+					articleUrl={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}
+				/>
 			</div>
-			<SNSSection title={frontmatter.title} articleUrl={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}/>
 		</Layout>
 	);
 }
