@@ -41,27 +41,28 @@ export default function Template({
 					/>
 				</article>
 			</div>
-			<SNSSection title={frontmatter.title} url={frontmatter.path} />
+			<SNSSection title={frontmatter.title} articleUrl={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}/>
 		</Layout>
 	);
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-        thumbnail
-        #metaDescription
-      }
-    }
-  }
-`
+					query($path: String!) {
+						site {
+							siteMetadata {
+								title
+								siteUrl
+							}
+						}
+						markdownRemark(frontmatter: { path: { eq: $path } }) {
+							html
+							frontmatter {
+								date(formatString: "MMMM DD, YYYY")
+								path
+								title
+								thumbnail
+								#metaDescription
+							}
+						}
+					}
+				`;
