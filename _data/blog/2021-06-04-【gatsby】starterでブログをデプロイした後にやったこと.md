@@ -3,7 +3,7 @@ template: BlogPost
 path: /after-build-gatsby-starter
 date: 2021-06-30T13:45:02.585Z
 title: 【Gatsby】Starterでブログ作成した後にやったこと 【随時更新】
-thumbnail: /assets/ivan-bandura-0-no6ywKMPY-unsplash (1).jpg
+thumbnail: /assets/costruct.jpg
 ---
 # gatsby-starterでブログを始める
 
