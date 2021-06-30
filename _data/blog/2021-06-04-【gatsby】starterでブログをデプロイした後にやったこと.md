@@ -18,6 +18,8 @@ gatsby-starterは[Get your Gatsby site in 1 min.](https://app.netlify.com/start/
 Wordpressでよくある機能をGatsbyで実現する方法は、検索するとたくさん出てくるので
 このブログに実装するついでに、この記事にまとめていこうと思います。
 
+<br>
+
 ## 前提
 
 Staterは[gatsby-starter-delog](https://www.gatsbyjs.com/starters/W3Layouts/gatsby-starter-delog)を使っています。
@@ -26,7 +28,11 @@ Staterは[gatsby-starter-delog](https://www.gatsbyjs.com/starters/W3Layouts/gats
 
 他のStarterでも基本的には同じ構成かと思いますので、参考にしていただければ幸いです。
 
+<br>
+
 # デプロイした後にやったこと
+
+<br>
 
 ## サイト情報の変更
 
@@ -34,7 +40,8 @@ Staterは[gatsby-starter-delog](https://www.gatsbyjs.com/starters/W3Layouts/gats
 
 私はNetlify CMS経由で修正しましたが、直接変更しても問題ないと思います。
 
-```site-meta-data.json
+`site-meta-data.json`
+```json
 {
   "title": "ブログタイトル",
   "siteUrl": "<ブログURL>",
@@ -46,12 +53,15 @@ Staterは[gatsby-starter-delog](https://www.gatsbyjs.com/starters/W3Layouts/gats
 }
 ```
 
+<br>
+
 ブックマーク時などに表示されるタイトルも修正するために、 [gatsby-config.js](https://github.com/W3Layouts/gatsby-starter-delog/blob/master/gatsby-config.js)も自分のブログ情報に修正します。
 
 デフォルトでは`Delog GatbsyJS Starter`というタイトルになっています。
 manifestファイルの各設定項目は[こちら](https://developer.mozilla.org/ja/docs/Web/Manifest)。
 
-```gatsby-config.js
+`gatsby-config.js`
+```js
 ...
 {
 resolve: `gatsby-plugin-manifest`,
@@ -68,13 +78,26 @@ options: {
 ...
 ```
 
+<br>
+
+## favicon・OGP画像の変更
+
+faviconとOGP画像は以下の画像を差し替えます
+
+- `static/favicon.ico`
+- `src/images/icon.png`
+- `src/images/og.jpg`
+
+<br>
+
 ## サイトカラーの変更
 
 デフォルトカラーでもおしゃれですが、[src/styles/global.scss](https://github.com/W3Layouts/gatsby-starter-delog/blob/master/src/styles/global.scss)を修正して自分なりに色を変えてみました。
 
 ライトモードとダークモードが選べるStarterなので、それぞれ色を指定していきます。
 
-```src/styles/global.scss
+`src/styles/global.scss`
+```css
 body.light {
   --primary-color: #381696;
   --primary-text-color: #fff;
@@ -118,6 +141,8 @@ body.dark {
   --input-bg: var(--card-bg);
 }
 ```
+
+<br>
 
 カラーを選ぶツールはたくさんあるようで。。。
 
