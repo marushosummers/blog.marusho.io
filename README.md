@@ -25,9 +25,7 @@ gatsby new mashtech https://github.com/W3Layouts/gatsby-starter-delog
 ### localでの立ち上げ
 
 ```
-cd blog.marusho.io
-
 npm install
 
-gatsby develop
+npm run develop
 ```

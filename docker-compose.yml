@@ -8,6 +8,7 @@ services:
     platform: linux/amd64
     ports:
       - "8000:8000"
+      - "9000:9000"
     volumes:
       - .:/home/node/app
     environment:
