@@ -24,7 +24,6 @@ const SNSSection = ({ title, articleUrl }) => {
 			<div className="share_icon">
 				<TwitterShareButton
 					title={title}
-					via="marusho_summers"
 					url={articleUrl}
 				>
 					<TwitterIcon
