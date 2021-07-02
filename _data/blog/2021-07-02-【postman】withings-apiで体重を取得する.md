@@ -4,21 +4,32 @@ path: /withings-api-with-postman
 date: 2021-07-02T07:16:07.517Z
 title: 【Postman】Withings APIで体重を取得する
 ---
-Withingsの体重計は自動で体重を記録し、アプリやWebでいつでも見ることができます。
+Withingsの体重計はいわゆるスマート体重計です。
 
-whitingsは記録したヘルスデータをAPI経由で取得できるので、
+特徴として、記録したヘルスデータをAPI経由で取得できるので、
 
-最近では、これを使って自分のヘルスデータを公開するページを作ったりしてました。
+これを使って自分のヘルスデータを公開するページを作ったりしてました。
 
-open marusho
+[open marusho](https://open.marusho.io/admin/dashboard)
 
-今回は、Withings API経由で自分の体重を取得した際のメモを書き残そうと思います。
+
+Withings API経由で自分の体重を取得した際のメモを書き残そうと思います。
+
 
 [Withings | スマートスケール、ウォッチ、ヘルスモニター](https://www.withings.com/jp/ja/)
 
 [Body Composition Smart Scales by Withings](https://www.withings.com/jp/ja/scales)
 
+## 環境
+
 ## Postmanをインストール
+
+APIでどのような値が取れるかどうか試すのには、Postmanを使うと手軽に検証できるのでおすすめです。
+
+PostmanはWeb版とクライアント版がありますが、今回はクライアント版を利用しました。
+
+https://www.postman.com/downloads/
+
 
 ## Withingsのアカウントを作成
 
@@ -39,6 +50,8 @@ APIを利用するためにWithings Developerとしてパートナー登録を�
 Postmanで利用するため、コールバックURLにはhogehogeを入力します。
 
 これを入れることによって、Postman経由でOAuth2.0認証を利用し、Access Tokenを取得することができます。
+
+(Web版を使うとエンドポイントが異なる可能性があります)
 
 ## Postmanを叩いてみる
 
