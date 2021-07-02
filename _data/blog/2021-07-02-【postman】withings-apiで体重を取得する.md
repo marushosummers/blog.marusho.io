@@ -48,7 +48,7 @@ Withingsのアカウントを作成します。既に登録済みの方は不要
 
 ### Withings Developer登録
 
-[My account](https://account.withings.com/partner/add_oauth2)
+[Withings Developer](https://account.withings.com/partner/add_oauth2)
 
 APIを利用するためにWithings Developerとしてパートナー登録をします。
 
