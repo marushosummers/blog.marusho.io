@@ -31,7 +31,6 @@ APIを活用して自分のヘルスデータを公開するページを作っ�
 
 ## 事前準備
 
-
 ### Postmanをインストール
 
 [Postman](https://www.postman.com/downloads/)
@@ -52,16 +51,11 @@ Withingsのアカウントを作成します。既に登録済みの方は不要
 
 APIを利用するためにWithings Developerとしてパートナー登録をします。
 
-
-
-Postmanで利用するため、コールバックURLにはhogehogeを入力します。
-(Web版を使うとエンドポイントが異なる可能性があります)
-
+Postmanで利用するため、コールバックURLには`https://oauth.pstmn.io/v1/callback`を入力します。 (Web版を使うとエンドポイントが異なる可能性があります)
 
 登録が完了すると、`Client ID`, `Client Secret`が発行されます。
 
 これで事前準備は完了です。
-
 
 ## PostmanでAccess Tokenを取得する
 
@@ -71,33 +65,28 @@ APIドキュメントを参考にしながら体重を取得していきます�
 
 ### CollectionsをImportする
 
-
-
-
 ### Authorizationを設定する
 
 インポートしたCollectionsのAuthorizationで認証情報を設定していきます。
 
 Oauth2.0認証を利用するため、設定値は以下のようになります。
 
-<画像>
+![Oauth2.0](/assets/Postman-3.png "Oauth2.0")
 
-- `Type`: OAuth2.0
-- `Add auth data to`: Request URL
-- `Access Tokens`: Available Tokens
-- `Header Prefix`: Bearer
-
-- `Token Name`: withings(何でも良い)
-- `Grant Type`: Authorization Code
-- `Callback URL`: https://oauth.pstmn.io/v1/callback (using browserにチェック)
-- `Auth URL`: https://account.withings.com/oauth2_user/authorize2
-- `Access Token URL`: https://account.withings.com/oauth2/token
-- `Client ID`: <取得したClient ID>
-- `Client Secret`: <取得したClient Secret>
-- `Scope`: user.info,user.metrics,user.activity
-- `State`: hoge(何でも良い)
-- `Client Authentication`: Send client credentials in body
- 
+* Type: OAuth2.0
+* Add auth data to: Request URL
+* Access Tokens: Available Tokens
+* Header Prefix: Bearer
+* Token Name: withings(何でも良い)
+* Grant Type: Authorization Code
+* Callback URL: https://oauth.pstmn.io/v1/callback (using browserにチェック)
+* Auth URL: https://account.withings.com/oauth2_user/authorize2
+* Access Token URL: https://account.withings.com/oauth2/token
+* Client ID: <取得したClient ID>
+* Client Secret: <取得したClient Secret>
+* Scope: user.info,user.metrics,user.activity
+* State: hoge(何でも良い)
+* Client Authentication: Send client credentials in body
 
 「Get New Access Token」を押すと、Withingsのログイン画面になります。
 
@@ -105,25 +94,27 @@ Oauth2.0認証を利用するため、設定値は以下のようになります
 
 （ブラウザの設定によってはポップアップブロックされるので許可する）
 
-`use Token`をクリックすると、`Current Token`に取得されたAccess Tokenが表示されます。
+use Tokenをクリックすると、Current Tokenに取得された`Access Token`が表示されます。
 
 ### 体重を取得する
 
 いよいよ体重を取得します。
 
-<画像>
+![getmeas](/assets/Postman-5.png "getmeas")
 
-Collectionsの`Measures -> Getmeas`のリクエストを開き、AuthorizationのTypeを`Inherit auth from parent`に設定します。
+Collectionsの`Measures -> Getmeas`のリクエストを開き、AuthorizationのTypeを`Inherit auth from parent`に設定します。 
+
+
+
 これで先ほど取得したAccess Tokenを利用して体重を取得することができます。
 
-<画像>
+![body](/assets/Postman-6.png "body")
 
 Bodyタブからパラメータは設定します。
 
 ドキュメントを参考に`meastype: 1`, `category: 1`とすると体重を取得できます。
 
 [Measure - Getmeas](https://developer.withings.com/api-reference#operation/measure-getmeas)
-
 
 ### 結果
 
@@ -160,18 +151,14 @@ Bodyタブからパラメータは設定します。
 }
 ```
 
-`value`の値が体重ですが、単位はgです。
-正確には、`value * 10^(unit) kg`という形で提供されているようです。
+<br>
+
+`value`の値が体重ですが、単位はgです。 正確には、`value * 10^(unit) kg`という形で提供されているようです。
 
 # おわりに
 
 ヘルスデータを手軽に取得できるWeb APIは少なく、Withingsはヘルスデータを使って何か開発する際の選択肢になるかと思います。
 
-体重計の他にも睡眠計やスマートウォッチもあり、身に付けておくだけで色々なヘルスデータを取得できます。
-私はSleepとWatchを愛用しています。
+体重計の他にも睡眠計やスマートウォッチもあり、身に付けておくだけで色々なヘルスデータを取得できます。 私はSleepとWatchを愛用しています。
 
 日々の健康を可視化したい方は、試してみてはいかがでしょうか！
-
-
-
-
