@@ -3,7 +3,7 @@ template: BlogPost
 path: /withings-api-with-postman
 date: 2021-07-02T07:16:07.517Z
 title: 【Postman】Withings APIで体重を取得する
-thumbnail: /assets/logo_withings_black.png
+thumbnail: /assets/logo_withings.png
 ---
 [Withings](https://www.withings.com/jp/ja/)はいろーんなヘルスデータを取得できるガジェットを出しています。
 
@@ -11,7 +11,7 @@ thumbnail: /assets/logo_withings_black.png
 
 [Body Composition Smart Scales by Withings](https://www.withings.com/jp/ja/scales)
 
-Witings Bodyは、いわゆるスマート体重計ですが
+Witings Bodyは、いわゆるスマート体重計です。
 
 記録したヘルスデータをAPI経由で取得できるので、
 
@@ -19,7 +19,7 @@ APIを活用して自分のヘルスデータを公開するページを作っ�
 
 [open marusho](https://open.marusho.io/admin/dashboard)
 
-<画像>
+![openmarusho](/assets/IMG_0741.jpg "openmarusho")
 
 今回は、Withings API経由で自分の体重を取得した際のメモを書き残そうと思います。
 
@@ -104,8 +104,6 @@ use Tokenをクリックすると、Current Tokenに取得された`Access Token
 ![getmeas](/assets/Postman-5.png "getmeas")
 
 Collectionsの`Measures -> Getmeas`のリクエストを開き、AuthorizationのTypeを`Inherit auth from parent`に設定します。 
-
-
 
 これで先ほど取得したAccess Tokenを利用して体重を取得することができます。
 
