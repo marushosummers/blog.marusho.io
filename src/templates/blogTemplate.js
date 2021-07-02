@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SNSSection from "../components/sns-section";
-import ogp_image from "../images/og.jpg";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -21,7 +20,7 @@ export default function Template({
 				<meta property="og:site_name" content={siteMetadata.title} />
 				<meta
 					property="og:image"
-					content={`${siteMetadata.siteUrl}${ogp_image}`}
+					content={`${siteMetadata.siteUrl}${frontmatter.thumbnail}`}
 				/>
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:title" content={frontmatter.title} />
@@ -31,7 +30,7 @@ export default function Template({
 				/>
 				<meta
 					name="twitter:image"
-					content={`${siteMetadata.siteUrl}${ogp_image}`}
+					content={`${siteMetadata.siteUrl}${frontmatter.thumbnail}`}
 				/>
 			</Helmet>
 			<div className="blog-post-container">
