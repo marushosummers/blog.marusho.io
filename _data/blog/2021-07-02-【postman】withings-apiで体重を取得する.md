@@ -6,25 +6,27 @@ title: 【Postman】Withings APIで体重を取得する
 ---
 [Withings](https://www.withings.com/jp/ja/)はいろーんなヘルスデータを取得できるガジェットを出しています。
 
-少し値段は高いですが、デザインがシンプルなのと必要最低限の機能は付いているのでお気に入りです。
+どれも少し値段は高いですが、デザインがシンプルなのでお気に入りです。
 
 [Body Composition Smart Scales by Withings](https://www.withings.com/jp/ja/scales)
 
-Witings Bodyは、いわゆるスマート体重計です。
+Witings Bodyは、いわゆるスマート体重計ですが
 
-特徴として、記録したヘルスデータをAPI経由で取得できるので、
+記録したヘルスデータをAPI経由で取得できるので、
 
-これを使って自分のヘルスデータを公開するページを作ったりしてました。
+APIを活用して自分のヘルスデータを公開するページを作ったりしてました。
 
 [open marusho](https://open.marusho.io/admin/dashboard)
 
-Withings API経由で自分の体重を取得した際のメモを書き残そうと思います。
+<画像>
+
+今回は、Withings API経由で自分の体重を取得した際のメモを書き残そうと思います。
 
 # Postmanを使ってWithings APIから体重を取得する
 
 ## 環境
 
-* macOS Big Sur (M1)
+* macOS BigSur (M1)
 * Postman(8.4.0)
 
 ## 事前準備
@@ -67,12 +69,8 @@ APIドキュメントを参考にしながら体重を取得していきます�
 
 2021年7月2日時点で、公式からPostmanのコレクションが配布されています。
 
-### Collectionsを作成する
-![postman](/assets/Postman.png)
+### CollectionsをImportする
 
-`Collections -> 追加(+)をクリック -> Collections名を追加`
-
-Collectionsを作っておくとAPIが整理されるので、後から使う際に助かります。
 
 
 
@@ -112,4 +110,68 @@ Oauth2.0認証を利用するため、設定値は以下のようになります
 ### 体重を取得する
 
 いよいよ体重を取得します。
+
+<画像>
+
+Collectionsの`Measures -> Getmeas`のリクエストを開き、AuthorizationのTypeを`Inherit auth from parent`に設定します。
+これで先ほど取得したAccess Tokenを利用して体重を取得することができます。
+
+<画像>
+
+Bodyタブからパラメータは設定します。
+
+ドキュメントを参考に`meastype: 1`, `category: 1`とすると体重を取得できます。
+
+[Measure - Getmeas](https://developer.withings.com/api-reference#operation/measure-getmeas)
+
+
+### 結果
+
+以下のようなJSONが返ってきたら成功です。
+
+```json
+{
+    "status": 0,
+    "body": {
+        "updatetime": 1625217057,
+        "timezone": "Asia/Tokyo",
+        "measuregrps": [
+            {
+                "grpid": xxxxxx,
+                "attrib": 0,
+                "date": 1624975530,
+                "created": 1624975558,
+                "category": 1,
+                "deviceid": "xxxxxx",
+                "hash_deviceid": "xxxxxx",
+                "measures": [
+                    {
+                        "value": 65600,
+                        "type": 1,
+                        "unit": -3,
+                        "algo": 0,
+                        "fm": 131
+                    }
+                ],
+                "comment": null
+            }
+        ]
+    }
+}
+```
+
+`value`の値が体重ですが、単位はgです。
+正確には、`value * 10^(unit) kg`という形で提供されているようです。
+
+# おわりに
+
+ヘルスデータを手軽に取得できるWeb APIは少なく、Withingsはヘルスデータを使って何か開発する際の選択肢になるかと思います。
+
+体重計の他にも睡眠計やスマートウォッチもあり、身に付けておくだけで色々なヘルスデータを取得できます。
+私はSleepとWatchを愛用しています。
+
+日々の健康を可視化したい方は、試してみてはいかがでしょうか！
+
+
+
 
