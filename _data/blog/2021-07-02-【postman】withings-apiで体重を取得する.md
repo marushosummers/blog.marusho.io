@@ -52,7 +52,9 @@ Withingsのアカウントを作成します。既に登録済みの方は不要
 
 APIを利用するためにWithings Developerとしてパートナー登録をします。
 
-Postmanで利用するため、コールバックURLには`https://oauth.pstmn.io/v1/callback`を入力します。 (Web版を使うとエンドポイントが異なる可能性があります)
+Postmanで利用するため、コールバックURLには`https://oauth.pstmn.io/v1/callback`を入力します。
+
+ (Web版を使うとエンドポイントが異なる可能性があります)
 
 登録が完了すると、`Client ID`, `Client Secret`が発行されます。
 
@@ -62,9 +64,15 @@ Postmanで利用するため、コールバックURLには`https://oauth.pstmn.i
 
 APIドキュメントを参考にしながら体重を取得していきます。
 
-2021年7月2日時点で、公式からPostmanのコレクションが配布されています。
-
 ### CollectionsをImportする
+
+2021年7月2日時点で、[公式からPostmanのコレクション](https://developer.withings.com/developer-guide/getting-started/sample-code/)が配布されています。
+
+CollectionsのImport -> Linkで以下のURLを入れると使うことができます。
+
+`https://raw.githubusercontent.com/withings-sas/api-oauth2-postman/master/Public_API.postman_collection.json`
+
+![collections](/assets/Postman-8.png "collections")
 
 ### Authorizationを設定する
 
