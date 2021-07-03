@@ -20,6 +20,15 @@ module.exports = {
 			options: {
 				plugins: [
 					{
+						resolve: `gatsby-remark-autolink-headers`,
+						options: {
+							offsetY: `30`,
+							icon: false,
+							className: `remark-autolink-headers`,
+							maintainCase: false,
+						},
+					},
+					{
 						resolve: `gatsby-remark-prismjs`,
 						options: {
 							classPrefix: "language-",

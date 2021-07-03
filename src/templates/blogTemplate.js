@@ -9,7 +9,7 @@ export default function Template({
 }) {
   const { site, markdownRemark } = data // data.markdownRemark holds your post data
   const { siteMetadata } = site
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, tableOfContents, html } = markdownRemark
   return (
 		<Layout>
 			<Helmet>
@@ -51,6 +51,10 @@ export default function Template({
 						</div>
 					)}
 					<div
+						className="table-of-content"
+						dangerouslySetInnerHTML={{ __html: tableOfContents }}
+					/>
+					<div
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
@@ -74,6 +78,11 @@ export const pageQuery = graphql`
 						}
 						markdownRemark(frontmatter: { path: { eq: $path } }) {
 							html
+							tableOfContents(
+								absolute: false
+								pathToSlugField: "frontmatter.path"
+								maxDepth: 3
+							)
 							frontmatter {
 								date(formatString: "MMMM DD, YYYY")
 								path
