@@ -3,16 +3,17 @@ template: BlogPost
 path: /node-canvas-on-next
 date: 2021-07-02T13:42:58.842Z
 title: 【Vercel】node-canvasでのOGP動的生成でハマったポイント
+thumbnail: /assets/sandie-clarke-0JPMHlHKos0-unsplash.jpg
 ---
-React.jsの勉強の一環として[emoji slot]()というものを作りました。
+React.jsの勉強の一環として[emoji slot](https://emoji-slot.marusho.io/)というものを作りました。
 
-<画像>
+![emoji-slot](/assets/IMG_0745.jpg "emoji-slot")
 
 機能の一つとして、twitterでつぶやいた際にOGP画像を動的に生成しています。
 
-<画像>
+![twitter](/assets/スクリーンショット 2021-07-04 22.34.33.png "twitter")
 
-仕組みとしてはパラメータに絵文字を入れるとOGP画像を生成するAPIが叩かれ、バイナリファイルが返ってきます。
+仕組みとしては、パラメータに絵文字を入れるとOGP画像を生成するAPIが叩かれ、バイナリファイルが返ってきます。
 
 以下の記事の案6として挙げられている方法で実装しています。（とても参考になりました）
 
@@ -50,6 +51,7 @@ package.jsonのscriptsに`now-build`を追加すると、デプロイ時に実�
 ```
 
 #### 参考
+
 [Vercel Now（旧ZEIT Now）上でnode-canvasを動かす](https://blanktar.jp/blog/2020/05/node-canvas-on-vercel-now)
 
 ## 2. ZLIB_1.2.9 not found エラー
@@ -60,7 +62,7 @@ package.jsonのscriptsに`now-build`を追加すると、デプロイ時に実�
 Error: /lib64/libz.so.1: version `ZLIB_1.2.9` not found (required by /opt/nodejs/node_modules/canvas/build/Release/libpng16.so.16)
 ```
 
-こちらは`node-canvas@2.6.1`に固定することで回避することができるようです。
+こちらは`node-canvas@2.6.1`に固定することで回避することができます。
 
 現時点では[node-canvas-with-twemoji](https://www.npmjs.com/package/node-canvas-with-twemoji)を入れると`node-canvas@2.8.0`がinstallされるので、バージョン指定するように変更します。
 
@@ -70,4 +72,12 @@ Error: /lib64/libz.so.1: version `ZLIB_1.2.9` not found (required by /opt/nodejs
 }
 ```
 
+#### 参考
 
+[Error: /lib64/libz.so.1: version `ZLIB_1.2.9' not found (required by /opt/nodejs/node_modules/canvas/build/Release/libpng16.so.16) #1779](https://github.com/Automattic/node-canvas/issues/1779)
+
+# おわりに
+
+OGP画像はTwitterで一気に視認性が上がるので、動的に生成するしくみはとても有用だと思います。
+
+他にもブログの各記事を生成している方もいらっしゃるようで、このブログでも実装してみようかな〜。
