@@ -39,16 +39,21 @@ node-canvasで画像生成するAPIをVercelで動作させることを想定し
 Error: libuuid.so.1: cannot open shared object file: No such file or directory
 ```
 
+<br>
+
 こちらは既に解決している記事がいくつかあり、デプロイ時にライブラリをinstallすることで解決できました。
 
 package.jsonのscriptsに`now-build`を追加すると、デプロイ時に実行してくれるようです。
 
 ```js
-  "scripts": {
-    // 以下を追加
-    "now-build": "yum install libuuid-devel libmount-devel zlib-devel && cp /lib64/{libuuid,libmount,libblkid,libz}.so.1 node_modules/canvas/build/Release/ && yarn build"
-  }
+"scripts": {
+  // 以下を追加
+  "now-build": "yum install libuuid-devel libmount-devel zlib-devel && cp /lib64/{libuuid,libmount,libblkid,libz}.so.1 node_modules/canvas/build/Release/ && yarn build"
+}
 ```
+
+<br>
+
 
 #### 参考
 
@@ -62,6 +67,8 @@ package.jsonのscriptsに`now-build`を追加すると、デプロイ時に実�
 Error: /lib64/libz.so.1: version `ZLIB_1.2.9` not found (required by /opt/nodejs/node_modules/canvas/build/Release/libpng16.so.16)
 ```
 
+<br>
+
 こちらは`node-canvas@2.6.1`に固定することで回避することができます。
 
 現時点では[node-canvas-with-twemoji](https://www.npmjs.com/package/node-canvas-with-twemoji)を入れると`node-canvas@2.8.0`がinstallされるので、バージョン指定するように変更します。
@@ -72,6 +79,8 @@ Error: /lib64/libz.so.1: version `ZLIB_1.2.9` not found (required by /opt/nodejs
 }
 ```
 
+<br>
+
 #### 参考
 
 [Error: /lib64/libz.so.1: version `ZLIB_1.2.9' not found (required by /opt/nodejs/node_modules/canvas/build/Release/libpng16.so.16) #1779](https://github.com/Automattic/node-canvas/issues/1779)
@@ -80,4 +89,4 @@ Error: /lib64/libz.so.1: version `ZLIB_1.2.9` not found (required by /opt/nodejs
 
 OGP画像はTwitterで一気に視認性が上がるので、動的に生成するしくみはとても有用だと思います。
 
-他にもブログの各記事を生成している方もいらっしゃるようで、このブログでも実装してみようかな〜。
+他にもブログの各記事を生成している方もいらっしゃるようで、このブログでも実装してみようかな〜
