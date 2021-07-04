@@ -7,7 +7,7 @@ thumbnail: /assets/sandie-clarke-0JPMHlHKos0-unsplash.jpg
 ---
 React.jsの勉強の一環として[emoji slot](https://emoji-slot.marusho.io/)というものを作りました。
 
-![emoji-slot](/assets/IMG_0745.jpg "emoji-slot")
+[![emoji-slot](/assets/IMG_0745.jpg "emoji-slot")](https://emoji-slot.marusho.io/)
 
 機能の一つとして、twitterでつぶやいた際にOGP画像を動的に生成しています。
 
