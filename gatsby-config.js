@@ -53,13 +53,6 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `@isamrish/gatsby-plugin-google-adsense`,
-			options: {
-				googleAdClientId: `ca-pub-7961076646821939`,
-				head: true,
-			},
-		},
-		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `mashtech`,
