@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SNSSection from "../components/sns-section";
 import Ads from "../components/GoogleAdSense";
+import AdsInline from "../components/GoogleAdSenseInline";
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -53,7 +54,7 @@ export default function Template({
 						</div>
 					)}
 					<div className="GoogleAds">
-						<Ads path={path} slot="5649691314"></Ads>
+						<AdsInline path={path} slot="5649691314"></AdsInline>
 					</div>
 					<div
 						className="table-of-content"
