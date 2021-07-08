@@ -11,7 +11,7 @@ export default function Template({
   const { site, markdownRemark } = data // data.markdownRemark holds your post data
   const { siteMetadata } = site
   const { frontmatter, tableOfContents, html } = markdownRemark
-	const path = location ? location.pathname : "error: no path";
+	const path = frontmatter ? frontmatter.path : "error: no path";
   return (
 		<Layout>
 			<Helmet>
