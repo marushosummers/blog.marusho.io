@@ -56,6 +56,9 @@ export default function Template({
 						className="table-of-content"
 						dangerouslySetInnerHTML={{ __html: tableOfContents }}
 					/>
+					<div className="GoogleAds">
+						<Ads path={path} slot="5649691314"></Ads>
+					</div>
 					<div
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
@@ -65,9 +68,9 @@ export default function Template({
 					title={frontmatter.title}
 					articleUrl={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}
 				/>
-			</div>
-			<div>
-				<Ads path={path} slot="1428935772"></Ads>
+				<div className="GoogleAds">
+					<Ads path={path} slot="1428935772"></Ads>
+				</div>
 			</div>
 		</Layout>
 	);
