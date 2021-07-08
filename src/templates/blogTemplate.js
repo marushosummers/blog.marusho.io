@@ -52,13 +52,13 @@ export default function Template({
 							<div className="post-meta">{frontmatter.date}</div>
 						</div>
 					)}
+					<div className="GoogleAds">
+						<Ads path={path} slot="5649691314"></Ads>
+					</div>
 					<div
 						className="table-of-content"
 						dangerouslySetInnerHTML={{ __html: tableOfContents }}
 					/>
-					<div className="GoogleAds">
-						<Ads path={path} slot="5649691314"></Ads>
-					</div>
 					<div
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
