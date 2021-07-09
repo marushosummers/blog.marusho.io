@@ -15,6 +15,7 @@ export default function AdsInlineCard({ path }, slot) {
 			style={{ display: "block", textAlign: "center" }}
 			data-ad-client="ca-pub-7961076646821939"
 			data-ad-slot={slot}
+			data-ad-format="horizontal"
 		></ins>
 	);
 }
