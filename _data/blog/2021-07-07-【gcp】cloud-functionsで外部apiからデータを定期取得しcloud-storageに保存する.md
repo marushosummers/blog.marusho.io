@@ -13,3 +13,9 @@ title: 【GCP】Cloud Functionsで外部APIからデータを定期取得しClou
 今回はBigQueryでの分析をしたかったので、GCP上に構築しました。
 
 ## 前提 
+
+
+```
+Allow unauthenticated invocations of new function [data-uploader]? 
+(y/N)?  N
+```
