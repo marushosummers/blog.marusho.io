@@ -9,7 +9,7 @@ thumbnail: /assets/cloud-functions-eyecatch.png
 
 データ分析のためにAPIから特定のデータを定期的に取得して保存したい。
 
-定期実行って意外と面倒くさいな〜となるのですが、GCPだとCloud Schedulerが手軽に使えるので良いですね。
+GCPでは定期実行をCloud Schedulerで手軽に使えるのが良いですね。
 
 データ量が少なかったり、SpreadSheetで扱いたい場合は[GAS](https://developers.google.com/apps-script?hl=ja)で実装するのが楽ですが、今回は拡張性も考えてCloud Functionsで実装してみました。
 
