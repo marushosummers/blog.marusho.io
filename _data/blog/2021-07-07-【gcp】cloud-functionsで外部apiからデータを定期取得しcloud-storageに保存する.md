@@ -3,6 +3,7 @@ template: BlogPost
 path: /repository-with-cloud-functions
 date: 2021-07-07T06:32:07.193Z
 title: 【GCP】Cloud Functionsで外部APIからデータを定期取得しCloud Storageに保存する
+thumbnail: /assets/cloud-functions-eyecatch.png
 ---
 # はじめに
 
@@ -16,22 +17,20 @@ title: 【GCP】Cloud Functionsで外部APIからデータを定期取得しClou
 
 # Cloud Functionsで外部APIからデータを定期取得し、Cloud Storageに保存する
 
-## 前提 
+## 前提
 
-- Python 3.7
-- [Cloud SDK](https://cloud.google.com/sdk/docs/install?hl=JA)
+* Python 3.7
+* [Cloud SDK](https://cloud.google.com/sdk/docs/install?hl=JA)
 
-GCPのプロジェクト、Cloud Storageのバケットは作成済みとしてスタートします。
-GCPの始め方は[公式チュートリアル](https://cloud.google.com/deployment-manager/docs/step-by-step-guide/installation-and-setup)が分かりやすくてオススメです。
+GCPのプロジェクト、Cloud Storageのバケットは作成済みとしてスタートします。 GCPの始め方は[公式チュートリアル](https://cloud.google.com/deployment-manager/docs/step-by-step-guide/installation-and-setup)が分かりやすくてオススメです。
 
 ## 構成
 
-<構成図を貼る>
+![structure](/assets/cloud-functions.png "structure")
 
 APIからデータ取得するサンプルとして、[JSON Placeholder](https://jsonplaceholder.typicode.com/)を使います。
 
 [/posts](https://jsonplaceholder.typicode.com/posts)で返却されるjsonを、Cloud StorageにJSONファイルとして保存します。
-
 
 ## APIからのデータ取得
 
@@ -40,7 +39,6 @@ APIからデータ取得するサンプルとして、[JSON Placeholder](https:/
 ## HTTPリクエストで動作するようにする
 
 ## Cloud Functionsへのデプロイ
-
 
 ```
 Deploying function (may take a while - up to 2 minutes)...done.                                                                                                                                                                                                                                                              
@@ -62,6 +60,7 @@ timeout: 60s
 updateTime: '2021-07-14T14:45:39.883Z'
 versionId: '1'
 ```
+
 ## Cloud Schedulerの設定
 
 ```
