@@ -41,6 +41,27 @@ APIからデータ取得するサンプルとして、[JSON Placeholder](https:/
 
 ## Cloud Functionsへのデプロイ
 
+
+```
+Deploying function (may take a while - up to 2 minutes)...done.                                                                                                                                                                                                                                                              
+availableMemoryMb: 256
+buildId: ...
+entryPoint: data_uploader
+httpsTrigger:
+  securityLevel: SECURE_OPTIONAL
+  url: https://us-central1-<projectName>.cloudfunctions.net/<functionName>
+ingressSettings: ALLOW_ALL
+labels:
+  deployment-tool: cli-gcloud
+name: projects/...
+runtime: python37
+serviceAccountEmail: <projectName@appspot.gserviceaccount.com>
+sourceUploadUrl: https://storage.googleapis.com/...
+status: ACTIVE
+timeout: 60s
+updateTime: '2021-07-14T14:45:39.883Z'
+versionId: '1'
+```
 ## Cloud Schedulerの設定
 
 ```
