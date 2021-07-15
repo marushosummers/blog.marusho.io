@@ -8,9 +8,9 @@ title: 【GCP】Cloud Functionsで外部APIからデータを定期取得しClou
 
 データ分析のためにAPIから特定のデータを定期的に取得して保存したい。
 
-意外と定期実行って面倒くさくて、どこにデプロイするかを考えなくてはいけません。
+定期実行って意外と面倒くさいな〜となるのですが、GCPだとCloud Schedulerが手軽に使えるので良いですね。
 
-今回はBigQueryでの分析をしたかったので、GCP上に構築しました。
+データ量が少なかったり、SpreadSheetで扱いたい場合は[GAS](https://developers.google.com/apps-script?hl=ja)で実装するのが楽ですが、今回は拡張性も考えてCloud Functionsで実装してみました。
 
 以下の記事のソースコードは[Github](https://github.com/marushosummers/sample-cloud-functions-uploader)で公開してますので、参考にして頂けたら嬉しいです。
 
