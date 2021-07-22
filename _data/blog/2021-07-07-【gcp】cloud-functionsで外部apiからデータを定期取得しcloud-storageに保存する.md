@@ -105,6 +105,8 @@ JSON Spaceholderから取得したjsonデータを、`data_[日付].json`とい�
 
 実装した関数について、軽く説明します。
 
+<br>
+
 #### `data_uploader`
 
 今回はHTTPリクエストで動作する形式でCloud Functionsを実装しています。
@@ -112,6 +114,8 @@ JSON Spaceholderから取得したjsonデータを、`data_[日付].json`とい�
 Cloud Functionsのエンドポイントが叩かれると、この関数が実行されます。
 
 今回は使用していませんが、`request`オブジェクトからクエリパラメータやPOSTでのオブジェクトを取得できます。
+
+<br>
 
 #### `fetcher`
 
@@ -121,6 +125,8 @@ requestsを使ってjsonをGETするシンプルな実装になっています�
 
 APIの仕様や返却されるデータの形式に合わせて変更してください。
 
+<br>
+
 #### `repository`
 
 Cloud Storageへファイルをアップロードする関数です。
@@ -128,6 +134,8 @@ Cloud Storageへファイルをアップロードする関数です。
 Cloud Storageのアップロードは[Python用Cloudクライアントライブラリ](https://cloud.google.com/python/docs/setup?hl=ja#installing_the_cloud_client_libraries_for_python)を使用します。
 
 jsonファイルとして保存するため、`content_type='application/json'`を指定しています。
+
+<br>
 
 ## Cloud Functionsへのデプロイ
 
@@ -144,12 +152,15 @@ gcloud config set project <Yout Project>
 gcloud functions deploy data-uploader --entry-point data_uploader --runtime python37 --trigger-http
 ```
 
+<br>
+
 デプロイ時に、HTTPのエンドポイントを叩くのに認証を必要とするか聞かれます。
 
 ```
 Allow unauthenticated invocations of new function [data-uploader]? 
 (y/N)?
 ```
+
 <br>
 
 
@@ -177,6 +188,7 @@ timeout: 60s
 updateTime: '2021-07-14T14:45:39.883Z'
 versionId: '1'
 ```
+
 <br>
 
 ## Cloud Schedulerの設定
@@ -186,6 +198,7 @@ versionId: '1'
 ```shell
 gcloud scheduler jobs create http daily-data-uploader --schedule="every 24 hours" --uri=<ENDPOINT> --oidc-service-account-email=<serviceAccountEmail>
 ```
+
 <br>
 
 scheduleの表記は[unix-cron構文](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules?hl=ja)と[App-Engine cron構文](https://cloud.google.com/appengine/docs/standard/python/config/cronref?hl=ja)どちらでも動作します。
