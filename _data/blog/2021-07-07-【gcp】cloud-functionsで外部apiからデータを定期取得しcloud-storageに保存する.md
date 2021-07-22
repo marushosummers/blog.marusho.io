@@ -138,6 +138,31 @@ jsonファイルとして保存するため、`content_type='application/json'`�
 
 ## Cloud Functionsへのデプロイ
 
+以下のコマンドでGCPにデプロイすることができます。
+デプロイされると`data-uploader`という名前でfunctionが生成されます。
+
+```bash
+# ログイン
+gcloud auth login
+
+# プロジェクトを設定
+gcloud config set project <Yout Project>
+
+# デプロイ
+gcloud functions deploy data-uploader --entry-point data_uploader --runtime python37 --trigger-http
+```
+
+デプロイ時に、HTTPのエンドポイントを叩くのに認証を必要とするか聞かれます。
+```
+Allow unauthenticated invocations of new function [data-uploader]? 
+(y/N)?
+```
+
+`y`とすると未認証を許可します。テスト用であればこちらでOKですが、誰でもエンドポイントを叩けるようになるため、それを避けたい場合は`N`にしましょう。
+Cloud Schedulerを設定する際に、認証情報を持たせるため定期実行には問題ありません。
+
+デプロイに成功すると以下のように表示されます。
+
 ```
 Deploying function (may take a while - up to 2 minutes)...done.                                                                                                                                                                                                                                                              
 availableMemoryMb: 256
@@ -161,9 +186,30 @@ versionId: '1'
 
 ## Cloud Schedulerの設定
 
-```
-Allow unauthenticated invocations of new function [data-uploader]? 
-(y/N)?  N
+スケジューラも同様にCLIから設定できます。
+
+```bash
+gcloud scheduler jobs create http daily-data-uploader --schedule="every 24 hours" --uri=<ENDPOINT> --oidc-service-account-email=<serviceAccountEmail>
 ```
 
+scheduleの表記は[unix-cron構文](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules?hl=ja)と[App-Engine cron構文](https://cloud.google.com/appengine/docs/standard/python/config/cronref?hl=ja)どちらでも動作します。
+
+urlには、Functionsをデプロイしたときに出力された`httpsTrigger`の`url`に表示されているエンドポイントを設定します。
+
+oidc-service-account-emailもデプロイ時に出力された`serviceAccountEmail`のアドレスを設定しましょう。
+
+<br>
+
+設定された時間にFunctionが実行され、Storageにファイルが保存されていれば成功です。
+
+
+もしうまく動かない場合は、SchedulerのログかFunctionsのログを確認してみると、どこで失敗しているかが分かると思います。
+
+
 # おわりに
+
+定期的なデータ取得 -> 保存はよく必要になるので、一度実装しておくと取得先と保存先を切り替えるだけで流用できて便利です。
+
+AWSでLambda + S3で実装する記事は見かけるのですが、GCPで実装している記事が少なかったので今回紹介させていただきました。
+
+Storageに貯めたデータはBigQueryに接続して分析ができるので、様々な用途にカスタマイズして使ってみてくれたら嬉しいです。
