@@ -30,11 +30,9 @@ GCPのプロジェクト、Cloud Storageのバケットは作成済みとして�
 
 ![structure](/assets/cloud-functions.png "structure")
 
-APIからのデータ取得は、[JSON Placeholder](https://jsonplaceholder.typicode.com/)をサンプルとして使います。
-[/posts](https://jsonplaceholder.typicode.com/posts)で返却されるjsonを、Cloud StorageにJSONファイルとして保存するケースで実装してみましょう。
+APIからのデータ取得は、[JSON Placeholder](https://jsonplaceholder.typicode.com/)をサンプルとして使います。 [/posts](https://jsonplaceholder.typicode.com/posts)で返却されるjsonを、Cloud StorageにJSONファイルとして保存するケースで実装してみましょう。
 
 フォルダ構成は[Github](https://github.com/marushosummers/sample-cloud-functions-uploader)を参考にして頂ければと思います。
-
 
 ### モジュール
 
@@ -44,6 +42,7 @@ GCPへのデプロイ時に使用するライブラリを明記する必要が�
 google-cloud-storage
 requests
 ```
+<br>
 
 ## 実装
 
@@ -70,7 +69,6 @@ def data_uploader(request):
 
     repository(BUCKET_NAME, file_name, data)
 
-    # TODO: 適切なreturnを調査する
     return "OK"
 
 def getFileName(time: datetime) -> str:
@@ -98,11 +96,10 @@ def repository(bucket_name: str, file_name: str, data: str):
 
     # Upload Data
     blob = bucket.blob(file_name)
-    # TODO: jsonの場合のcontent_typeを調査する
     blob.upload_from_string(data, content_type='application/json')
     print(f"Uploaded: {file_name}")
-
 ```
+<br>
 
 JSON Spaceholderから取得したjsonデータを、`data_[日付].json`という形式で保存しています。
 
@@ -120,12 +117,11 @@ Cloud Functionsのエンドポイントが叩かれると、この関数が実�
 
 APIからのデータ取得を行う関数です。
 
-requestsを使ってjsonをGETするシンプルな実装になっています。
-最低限のHTTP statusのハンドリングだけしています。
+requestsを使ってjsonをGETするシンプルな実装になっています。 最低限のHTTP statusのハンドリングだけしています。
 
 APIの仕様や返却されるデータの形式に合わせて変更してください。
 
-#### `repository` 
+#### `repository`
 
 Cloud Storageへファイルをアップロードする関数です。
 
@@ -133,15 +129,11 @@ Cloud Storageのアップロードは[Python用Cloudクライアントライブ�
 
 jsonファイルとして保存するため、`content_type='application/json'`を指定しています。
 
-
-
-
 ## Cloud Functionsへのデプロイ
 
-以下のコマンドでGCPにデプロイすることができます。
-デプロイされると`data-uploader`という名前でfunctionが生成されます。
+以下のコマンドでGCPにデプロイすることができます。 デプロイされると`data-uploader`という名前でfunctionが生成されます。
 
-```bash
+```shell
 # ログイン
 gcloud auth login
 
@@ -153,13 +145,15 @@ gcloud functions deploy data-uploader --entry-point data_uploader --runtime pyth
 ```
 
 デプロイ時に、HTTPのエンドポイントを叩くのに認証を必要とするか聞かれます。
+
 ```
 Allow unauthenticated invocations of new function [data-uploader]? 
 (y/N)?
 ```
+<br>
 
-`y`とすると未認証を許可します。テスト用であればこちらでOKですが、誰でもエンドポイントを叩けるようになるため、それを避けたい場合は`N`にしましょう。
-Cloud Schedulerを設定する際に、認証情報を持たせるため定期実行には問題ありません。
+
+`y`とすると未認証を許可します。テスト用であればこちらでOKですが、誰でもエンドポイントを叩けるようになるため、それを避けたい場合は`N`にしましょう。 Cloud Schedulerを設定する際に、認証情報を持たせるため定期実行には問題ありません。
 
 デプロイに成功すると以下のように表示されます。
 
@@ -183,14 +177,16 @@ timeout: 60s
 updateTime: '2021-07-14T14:45:39.883Z'
 versionId: '1'
 ```
+<br>
 
 ## Cloud Schedulerの設定
 
 スケジューラも同様にCLIから設定できます。
 
-```bash
+```shell
 gcloud scheduler jobs create http daily-data-uploader --schedule="every 24 hours" --uri=<ENDPOINT> --oidc-service-account-email=<serviceAccountEmail>
 ```
+<br>
 
 scheduleの表記は[unix-cron構文](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules?hl=ja)と[App-Engine cron構文](https://cloud.google.com/appengine/docs/standard/python/config/cronref?hl=ja)どちらでも動作します。
 
@@ -202,8 +198,8 @@ oidc-service-account-emailもデプロイ時に出力された`serviceAccountEma
 
 設定された時間にFunctionが実行され、Storageにファイルが保存されていれば成功です。
 
+![result](/assets/storage-sample.png "result")
 
-もしうまく動かない場合は、SchedulerのログかFunctionsのログを確認してみると、どこで失敗しているかが分かると思います。
 
 
 # おわりに
