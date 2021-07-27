@@ -64,6 +64,14 @@ module.exports = {
 				icon: "src/images/icon.png",
 			},
 		},
+		{
+			resolve: "gatsby-plugin-robots-txt",
+			options: {
+				host: "https://blog.marusho.io",
+				sitemap: "https://blog.marusho.io/sitemap.xml",
+				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify-cms`,
