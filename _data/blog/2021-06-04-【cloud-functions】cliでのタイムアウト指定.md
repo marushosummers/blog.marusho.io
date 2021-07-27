@@ -4,6 +4,7 @@ path: /cloud-functions-timeout
 date: 2021-06-04T04:04:57.693Z
 title: 【Cloud Functions】CLIでのタイムアウト指定
 thumbnail: /assets/timeout.jpg
+tags: ["Tech"]
 ---
 # Cloud Functionsのタイムアウトについて
 

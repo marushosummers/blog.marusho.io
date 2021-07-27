@@ -4,6 +4,7 @@ path: /stop-firebase-hosting
 date: 2021-06-02T02:35:42.774Z
 title: firebase hostingのデプロイを止める
 thumbnail: /assets/mac.jpg
+tags: ["Tech"]
 ---
 ```bash
 firebase hosting:disable
