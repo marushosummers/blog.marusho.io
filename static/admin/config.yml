@@ -87,7 +87,7 @@ collections:
       - { name: body, label: Body, widget: markdown }
   - name: tags
     label: Tags
-    folder: _data/blog
+    folder: _data/tags
     create: true
     fields:
       - { label: title, name: title, widget: string }
