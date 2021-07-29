@@ -70,7 +70,7 @@ collections:
       - label: "Tags"
         name: "tags"
         widget: "list"
-        default: ["Tech"]
+        default: ["tech"]
       - label: Featured Image
         name: thumbnail
         widget: image

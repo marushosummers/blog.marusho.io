@@ -1,6 +1,6 @@
 import React from "react"
 import Helmet from 'react-helmet';
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SNSSection from "../components/sns-section";
 import Ads from "../components/GoogleAdSense";
@@ -64,6 +64,9 @@ export default function Template({
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
+					<div className="tagLink">
+						<Link to={`/tags/${frontmatter.tags}/`}>#{frontmatter.tags}</Link>
+					</div>
 				</article>
 				<SNSSection
 					title={frontmatter.title}
@@ -97,6 +100,7 @@ export const pageQuery = graphql`
 								path
 								title
 								thumbnail
+								tags
 								#metaDescription
 							}
 						}
