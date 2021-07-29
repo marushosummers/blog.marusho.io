@@ -67,15 +67,10 @@ collections:
         name: metaDescription
         widget: text
         required: false
-      - name: tags
-        label: Tags
-        widget: relation
-        required: false
-        collection: tags
-        searchFields: ["title"]
-        valueField: title
-        displayFields: ["title"]
-        multiple: true
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: ["Tech"]
       - label: Featured Image
         name: thumbnail
         widget: image
@@ -85,9 +80,4 @@ collections:
           config:
             multiple: false
       - { name: body, label: Body, widget: markdown }
-  - name: tags
-    label: Tags
-    folder: tags
-    create: true
-    fields:
-      - { label: title, name: title, widget: string }
+
