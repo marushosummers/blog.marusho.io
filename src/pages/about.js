@@ -23,20 +23,20 @@ const About = ({
 						<h1>About - {site.siteMetadata.title}</h1>
 						<h2>ブログについて</h2>
 						<p>
-							こんにちは、marushoです。さいたま ﾟ∀ﾟ
-							でWeb/データエンジニアをやっています。
+							こんにちは、marushoです🦊
 						</p>
 						<p>
 							プログラミングの学習記録、個人開発、ほか趣味について備忘録として書き散らかしています。
 						</p>
-
+						<p>
+							経歴・プロフィールは<a href="https://marusho.io/" target="_blank" rel="noopener noreferrer">こちら</a>
+						</p>
 						<h2>お問い合わせ</h2>
-						<p>TwitterのDMまたはメールにてお願いいたします。</p>
 						<ul>
+							<li><a href="https://forms.gle/krbqfZvHsDxZy7BM6" target="_blank" rel="noopener noreferrer">お問い合わせフォーム</a></li>
 							<li>
-								<a href="https://twitter.com/marusho_summers">Twitter</a>
+							<a href="https://twitter.com/marusho_summers" target="_blank" rel="noopener noreferrer">Twitter</a>
 							</li>
-							<li>mrsho34☆gmail.com</li>
 						</ul>
 
 						<h2>プライバシーポリシー</h2>
