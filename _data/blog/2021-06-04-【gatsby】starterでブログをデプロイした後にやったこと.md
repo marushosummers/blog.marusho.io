@@ -5,6 +5,7 @@ date: 2021-06-30T13:45:02.585Z
 title: 【Gatsby】Starterでブログ作成した後にやったこと 【随時更新】
 thumbnail: /assets/costruct.jpg
 tags: ["tech"]
+icon: 💇‍♂️
 ---
 # gatsby-starterでブログを始める
 

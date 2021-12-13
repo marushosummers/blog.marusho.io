@@ -5,6 +5,7 @@ date: 2021-06-02T02:35:42.774Z
 title: firebase hostingのデプロイを止める
 thumbnail: /assets/mac.jpg
 tags: ["tech"]
+icon: 🚒
 ---
 ```bash
 firebase hosting:disable

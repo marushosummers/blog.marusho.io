@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import ThemeChanger from "../components/themeChanger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
@@ -20,6 +19,5 @@ export default (props) => (
 				icon={faGithub}
 			/>
 		</a>
-		<ThemeChanger />
 	</nav>
 );

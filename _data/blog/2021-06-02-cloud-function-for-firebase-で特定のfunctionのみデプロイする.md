@@ -5,6 +5,7 @@ date: 2021-06-02T05:05:05.791Z
 title: 【Firebase】特定のFunctionsのみデプロイする
 thumbnail: /assets/fire.jpg
 tags: ["tech"]
+icon: 🔥
 ---
 FirebaseのCloud Functionsでバッチ処理などを実装していると、変更を加えたFunctionsのみをデプロイしたいときがありますよね。
 
