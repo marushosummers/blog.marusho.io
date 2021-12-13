@@ -12,7 +12,7 @@ export default function AdsInlineCard({ path }, slot) {
 	return (
 		<>
 			<style jsx>{`
-				.adslot-inline { max-width: 700px; max-height: 50px; }
+				.adslot-inline { max-height: 60px; }
 				@media(min-width: 768px) { .adslot-inline { max-height: 100px; } }
 			`}</style>
 			<ins
