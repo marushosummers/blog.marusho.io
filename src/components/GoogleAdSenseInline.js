@@ -11,10 +11,6 @@ export default function AdsInlineCard({ path }, slot) {
 
 	return (
 		<>
-			<style jsx>{`
-				.adslot-inline { max-height: 60px; }
-				@media(min-width: 768px) { .adslot-inline { max-height: 100px; } }
-			`}</style>
 			<ins
 				className="adsbygoogle adslot-inline"
 				style={{ display: "block", textAlign: "center" }}
