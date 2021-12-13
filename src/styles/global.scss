@@ -515,9 +515,17 @@ and (min-width: 768px) {
   text-align: center;
   margin: 30px 0 30px;
 }
+.adslot-inline {
+  width: 468px;
+  height: 60px;
+}
 
-.adslot-inline { max-height: 60px; }
-@media(min-width: 768px) { .adslot-inline { max-height: 100px; } }
+@media(min-width: 768px) {
+  .adslot-inline {
+    width: 728px;
+    height: 90px;
+  }
+}
 
 // tag Link
 .tagLink {
