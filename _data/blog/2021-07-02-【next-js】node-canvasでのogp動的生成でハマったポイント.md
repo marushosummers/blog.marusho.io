@@ -2,9 +2,9 @@
 template: BlogPost
 path: /node-canvas-on-next
 date: 2021-07-02T13:42:58.842Z
-title: 【Vercel】node-canvasでのOGP動的生成でハマったポイント
+title: node-canvasでのOGP動的生成でハマったポイント
 thumbnail: /assets/sandie-clarke-0JPMHlHKos0-unsplash.jpg
-tags: ["tech"]
+tags: ["tech", "Vercel"]
 icon: 🎨
 ---
 React.jsの勉強の一環として[emoji slot](https://emoji-slot.marusho.io/)というものを作りました。

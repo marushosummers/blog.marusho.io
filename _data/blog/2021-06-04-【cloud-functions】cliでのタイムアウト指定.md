@@ -2,8 +2,9 @@
 template: BlogPost
 path: /cloud-functions-timeout
 date: 2021-06-04T04:04:57.693Z
-title: 【Cloud Functions】タイムアウト時間を変更する
+title: Cloud Functionsのタイムアウト時間を変更する
 thumbnail: /assets/timeout.jpg
+tags: ["tech", "CloudFunctions"]
 icon: 🕛
 ---
 # Cloud Functionsのタイムアウトについて

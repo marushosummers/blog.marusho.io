@@ -2,9 +2,9 @@
 template: BlogPost
 path: /withings-api-with-postman
 date: 2021-07-02T07:16:07.517Z
-title: 【Postman】Withings APIで体重を取得する
+title: Withings APIで体重を取得する
 thumbnail: /assets/logo_withings.png
-tags: ["tech"]
+tags: ["tech", "Withings", "Postman"]
 icon: 👟
 ---
 [Withings](https://www.withings.com/jp/ja/)はいろーんなヘルスデータを取得できるガジェットを出しています。

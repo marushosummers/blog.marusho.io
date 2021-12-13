@@ -72,9 +72,12 @@ a {
   }
 }
 .site-wrapper {
-  padding: 4px 4px;
+  padding: 20px;
   max-width: 1140px;
   margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
   img {
     max-width: 100%;
   }
@@ -182,6 +185,10 @@ a {
       margin: 30px 0px 20px;
       padding: 0.25em 0.5em;
       border-left: solid 5px;
+    }
+
+    p {
+      font-size: 15px;
     }
   }
   > .blog-post-content *:last-child,
@@ -320,12 +327,21 @@ a {
 }
 .site-footer {
   text-align: center;
-  margin: 90px 0 16px;
+  margin-top: 16px;
   color: #666;
   a {
-    font-weight: 700;
+    font-weight: 300;
   }
 }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+.footer-link {
+  min-width: 50px;
+}
+
 .form-container {
   background-color: var(--contact-bg);
   padding: 32px;
@@ -504,4 +520,8 @@ and (min-width: 768px) {
 .tagLink {
   text-align: center;
   margin: 20px 0 0px;
+}
+
+.tag-contents {
+  flex: 1;
 }

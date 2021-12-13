@@ -14,7 +14,7 @@ const Tags = ({ pageContext, data }) => {
 
 	return (
 		<Layout>
-			<div>
+			<div className="tag-contents">
 				<h1>{tagHeader}</h1>
 				<div className="grids">{Posts}</div>
 			</div>
@@ -58,10 +58,11 @@ export const pageQuery = graphql`
 					id
 					excerpt(pruneLength: 250)
 					frontmatter {
-						date(formatString: "MMMM DD, YYYY")
+						date(formatString: "YYYY.MM.DD")
 						title
 						path
 						tags
+						icon
 					}
 				}
 			}

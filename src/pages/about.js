@@ -26,7 +26,7 @@ const About = ({
 							こんにちは、marushoです🦊
 						</p>
 						<p>
-							プログラミングの学習記録、個人開発、ほか趣味について備忘録として書き散らかしています。
+							プログラミングの学習記録、個人開発、ほか趣味について備忘録として書き散らかしています
 						</p>
 						<p>
 							経歴・プロフィールは<a href="https://marusho.io/" target="_blank" rel="noopener noreferrer">こちら</a>

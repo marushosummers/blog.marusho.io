@@ -55,9 +55,16 @@ export default function Template({
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
-					<div className="tagLink">
-						<Link to={`/tags/${frontmatter.tags}/`}>#{frontmatter.tags}</Link>
-					</div>
+					{
+						frontmatter.tags.map((tag, index) => (
+							<div className="tagLink">
+								< Link to = {
+										`/tags/${tag.toLowerCase()}/`}>#{tag}</Link>
+							</div>
+							)
+						)
+					}
+
 				</article>
 				<SNSSection
 					title={frontmatter.title}

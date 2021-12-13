@@ -2,9 +2,9 @@
 template: BlogPost
 path: /after-build-gatsby-starter
 date: 2021-06-30T13:45:02.585Z
-title: 【Gatsby】Starterでブログ作成した後にやったこと 【随時更新】
+title: Gatsby Starterでブログ作成した後にやったこと
 thumbnail: /assets/costruct.jpg
-tags: ["tech"]
+tags: ["tech", "Gatsby"]
 icon: 💇‍♂️
 ---
 # gatsby-starterでブログを始める

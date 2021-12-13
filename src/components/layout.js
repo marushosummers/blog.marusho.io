@@ -26,11 +26,12 @@ export default ({ children }) => {
 				<span role="img" aria-label="marusho">
 					🦊
 				</span>
-				<p></p>
-				<p>
+				<div className="footer-links">
+					<div className="footer-link"><Link to="/">Top</Link></div>
+					<div className="footer-link"><Link to="/about">About</Link></div>
+				</div>
 					&copy; {new Date().getFullYear()} mashtech created by{" "}
 					<a href="https://twitter.com/marusho_summers">marusho</a>
-				</p>
 			</footer>
 		</div>
 	);
