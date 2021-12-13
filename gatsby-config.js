@@ -62,7 +62,7 @@ module.exports = {
 				background_color: `#fdfdfd`,
 				theme_color: `#fdfdfd`,
 				display: `standalone`,
-				icon: "src/images/icon.png",
+				icon: "src/images/apple-touch-icon.png",
 			},
 		},
 		{
