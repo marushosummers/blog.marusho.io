@@ -94,7 +94,7 @@ export const pageQuery = graphql`
 								maxDepth: 3
 							)
 							frontmatter {
-								date(formatString: "MMMM DD, YYYY")
+								date(formatString: "YYYY.MM.DD")
 								path
 								title
 								tags
