@@ -40,6 +40,7 @@ export default function Template({
 			<div className="blog-post-container">
 				<article className="post">
 					<div className="post-thumbnail">
+						<div className="post-icon">{frontmatter.icon ?? "🦊"}</div>
 						<h1 className="post-title">{frontmatter.title}</h1>
 						<div className="post-meta">{frontmatter.date}</div>
 					</div>
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
 								path
 								title
 								tags
+								icon
 								#metaDescription
 							}
 						}
