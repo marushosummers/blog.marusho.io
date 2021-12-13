@@ -10,12 +10,18 @@ export default function AdsInlineCard({ path }, slot) {
 	}, [path]);
 
 	return (
-		<ins
-			className="adsbygoogle"
-			style={{ display: "block", textAlign: "center" }}
-			data-ad-client="ca-pub-7961076646821939"
-			data-ad-slot={slot}
-			data-ad-format="horizontal"
-		></ins>
+		<>
+			<style jsx>{`
+				.adslot-inline { max-width: 700px; max-height: 50px; }
+				@media(min-width: 768px) { .adslot-inline { max-height: 100px; } }
+			`}</style>
+			<ins
+				className="adsbygoogle adslot-inline"
+				style={{ display: "block", textAlign: "center" }}
+				data-ad-client="ca-pub-7961076646821939"
+				data-ad-slot={slot}
+				data-ad-format="horizontal"
+			></ins>
+		</>
 	);
 }
