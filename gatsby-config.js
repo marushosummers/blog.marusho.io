@@ -45,12 +45,13 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-google-analytics`,
+    resolve: 'gatsby-plugin-google-gtag',
 			options: {
-				// The property ID; the tracking code won't be generated without it. replace with yours
-				trackingId: "UA-164289266-2",
-				head: true,
-			},
+				trackingIds: ['G-KLHQHBTNS4'],
+				pluginConfig: {
+					head: true,
+					},
+    	},
 		},
 		{
 			resolve: `gatsby-plugin-manifest`,
