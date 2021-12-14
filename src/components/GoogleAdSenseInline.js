@@ -12,8 +12,8 @@ export default function AdsInlineCard({ path }, slot) {
 	return (
 		<>
 			<ins
-				className="adsbygoogle adslot-inline"
-				style={{ display: "block", textAlign: "center" }}
+				className="adsbygoogle"
+				style={{ display: "inline-block", width: "320px", height: "100px" }}
 				data-ad-client="ca-pub-7961076646821939"
 				data-ad-slot={slot}
 				data-ad-format="horizontal"
