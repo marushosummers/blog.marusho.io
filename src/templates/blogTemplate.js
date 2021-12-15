@@ -48,10 +48,6 @@ export default function Template({
 						<AdsInline path={path} slot="5649691314"></AdsInline>
 					</div>
 					<div
-						className="table-of-content"
-						dangerouslySetInnerHTML={{ __html: tableOfContents }}
-					/>
-					<div
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
