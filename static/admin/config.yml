@@ -67,16 +67,12 @@ collections:
         name: metaDescription
         widget: text
         required: false
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+      - label: Tags
+        name: tags
+        widget: list
         default: ["tech"]
-      - label: Featured Image
-        name: thumbnail
-        widget: image
-        hint: "Image size 1280x800 works best :)"
-        required: false
-        media_library:
-          config:
-            multiple: false
+      - label: Icon
+        name: icon
+        widget: text
+        default: 🦊
       - { name: body, label: Body, widget: markdown }
