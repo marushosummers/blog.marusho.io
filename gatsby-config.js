@@ -73,6 +73,12 @@ module.exports = {
 				policy: [{ userAgent: "*", allow: "/" }],
 			},
 		},
+		{
+			resolve: `gatsby-plugin-google-adsense`,
+			options: {
+				publisherId: `ca-pub-7961076646821939`,
+			},
+		},
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify-cms`,
