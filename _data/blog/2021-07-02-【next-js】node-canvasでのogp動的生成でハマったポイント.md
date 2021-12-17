@@ -13,7 +13,7 @@ React.jsの勉強の一環として[emoji slot](https://emoji-slot.marusho.io/)�
 
 機能の一つとして、twitterでつぶやいた際にOGP画像を動的に生成しています。
 
-![twitter](/assets/スクリーンショット 2021-07-04 22.34.33.png "twitter")
+![twitter](/assets/canvas_twitter_image.png "twitter")
 
 仕組みとしては、パラメータに絵文字を入れるとOGP画像を生成するAPIが叩かれ、バイナリファイルが返ってきます。
 
