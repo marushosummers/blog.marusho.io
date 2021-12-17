@@ -527,9 +527,45 @@ and (min-width: 768px) {
 }
 
 // tag Link
-.tagLink {
+.tags {
   text-align: center;
-  margin: 20px 0 0px;
+  margin: 20px auto;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul li {
+    display: inline-block;
+    margin: 0 .3em .3em 0;
+    padding: 0;
+  }
+
+  ul li a {
+    display: inline-block;
+    max-width: 100px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 1em;
+    background-color: #fafafa;
+    border: 1px solid #d5d5d5;
+    border-radius: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--primary-text-color);
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+
+  ul li a:hover {
+    background-color: #d5d5d5;
+    border: 1px solid #d5d5d5;
+  }
 }
 
 .tag-contents {

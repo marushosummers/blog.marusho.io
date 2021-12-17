@@ -1,8 +1,9 @@
 import React from "react"
 import Helmet from 'react-helmet';
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SNSSection from "../components/sns-section";
+import PostTags from "../components/post-tags";
 import Ads from "../components/GoogleAdSense";
 import AdsInline from "../components/GoogleAdSenseInline";
 import ogp_image from "../images/og.jpg";
@@ -51,15 +52,7 @@ export default function Template({
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
-					{
-						frontmatter.tags.map((tag, index) => (
-							<div className="tagLink">
-								< Link to = {
-										`/tags/${tag.toLowerCase()}/`}>#{tag}</Link>
-							</div>
-							)
-						)
-					}
+					<PostTags tags={frontmatter.tags} />
 
 				</article>
 				<SNSSection
