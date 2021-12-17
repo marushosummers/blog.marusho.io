@@ -12,7 +12,7 @@ export default function Template({
 }) {
   const { site, markdownRemark } = data // data.markdownRemark holds your post data
   const { siteMetadata } = site
-  const { frontmatter, tableOfContents, html } = markdownRemark
+  const { frontmatter, html } = markdownRemark
 	const path = frontmatter ? frontmatter.path : "error: no path";
   return (
 		<Layout>

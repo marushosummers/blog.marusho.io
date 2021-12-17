@@ -41,6 +41,12 @@ module.exports = {
 					{
 						resolve: "gatsby-remark-emojis",
 					},
+					{
+						resolve: `gatsby-remark-external-links`,
+						options: {
+							rel: "noopener noreferrer",
+						}
+					},
 				],
 			},
 		},

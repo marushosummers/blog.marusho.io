@@ -58,19 +58,29 @@ body.dark {
   --contact-bdr: var(--card-bg);
   --input-bg: var(--card-bg);
 }
-/* System Fonts as used by Medium and WordPress */
+
 body {
   font-family: $font-family;
   background-color: var(--background);
   color: var(--text-color);
 }
-a {
-  color: var(--primary-text-color);
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+
+a[target="_blank"] {
+  padding-right: 0.4rem;
+
+  &::after {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(./svg/link_icon.svg) no-repeat 0 0;
+    background-size: 20px 20px;
+    content: " ";
+    position: relative;
+    top: 0.15rem;
+    left: 0.15rem;
   }
 }
+
 .site-wrapper {
   padding: 20px;
   max-width: 1140px;
@@ -186,7 +196,14 @@ a {
       padding: 0.25em 0.5em;
       border-left: solid 5px;
     }
+    a {
+      color: var(--primary-text-color);
+      text-decoration: underline;
 
+      &:hover {
+        text-decoration: underline;
+      }
+    }
     p {
       font-size: 15px;
     }
@@ -265,7 +282,7 @@ a {
   margin-top: 10px;
 }
 
-.card-link a {
+.card-link {
   color: var(--text-color);
   text-decoration: none;
 }
