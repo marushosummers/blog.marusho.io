@@ -26,8 +26,6 @@ Wordpressでよくある機能をGatsbyで実現する方法は、検索する�
 
 Staterは[gatsby-starter-delog](https://www.gatsbyjs.com/starters/W3Layouts/gatsby-starter-delog)を使っています。
 
-![gatsby-starter-delog](https://www.gatsbyjs.com/static/45d87c03cb6f0403e77abca7d1e4a60c/5803e/4b40e11da7ed0cff747d11422cf63dc9.webp "gatsby-starter-delog")
-
 他のStarterでも基本的には同じ構成かと思いますので、参考にしていただければ幸いです。
 
 <br>
