@@ -6,9 +6,9 @@ const PostTag = ({ tags }) => (
     <ul>
     {
       tags.map((tag, index) => (
-        <li className="tagLink" key={index}>
+        <li key={index}>
           <Link to = {
-              `/tags/${tag.toLowerCase()}/`}>#{tag}</Link>
+              `/tags/${tag.toLowerCase()}/`}>{tag}</Link>
         </li>
         )
       )
