@@ -28,6 +28,7 @@ const Layout = ({ children }) => {
 				</span>
 				<div className="footer-links">
 					<div className="footer-link"><Link to="/">Top</Link></div>
+					<div className="footer-link"><Link to="/tags/scrap">Scrap</Link></div>
 					<div className="footer-link"><Link to="/about">About</Link></div>
 				</div>
 					&copy; {new Date().getFullYear()} mashtech created by{" "}
