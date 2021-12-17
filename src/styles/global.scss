@@ -16,7 +16,12 @@ body {
 * {
   margin-top: 0
 }
-body.light {
+
+body {
+  font-family: $font-family;
+  background-color: var(--background);
+  color: var(--text-color);
+
   --primary-color: #fdfdfd;
   --primary-text-color: rgb(64, 64, 64);
   --featured-bg: #fdfdfd;
@@ -35,34 +40,6 @@ body.light {
   --contact-bg: #fdfdfd;
   --contact-bdr: #d3d6e7;
   --input-bg: var(--background);
-}
-body.dark {
-  --primary-color: #fdfdfd;
-  --primary-text-color: #fff;
-  --featured-bg: #fdfdfd;
-  --featured-text: #fff;
-  --secondary-color: #fdfdfd;
-  --background: rgb(64, 64, 64);
-  --text-color: #fdfdfd;
-  --text-secondary-color: #fdfdfd;
-  --site-header: var(--background);
-  --card-bg: rgb(64, 64, 64);
-  --card-bdr: rgb(64, 64, 64);
-  --card-shadow: rgb(7, 8, 5);
-  --btn-bg: var(--background);
-  --btn-bdr: #d3d6e7;
-  --btn-text-color: #fdfdfd;
-  --btn-hover-bg: var(--btn-bdr);
-  --btn-hover-text-color: rgb(7, 8, 5);
-  --contact-bg: var(--card-shadow);
-  --contact-bdr: var(--card-bg);
-  --input-bg: var(--card-bg);
-}
-
-body {
-  font-family: $font-family;
-  background-color: var(--background);
-  color: var(--text-color);
 }
 
 a[target="_blank"] {
@@ -348,6 +325,11 @@ a[target="_blank"] {
   color: #666;
   a {
     font-weight: 300;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  a :hover {
+    text-decoration: none;
   }
 }
 .footer-links {
