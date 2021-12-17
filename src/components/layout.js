@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
 					<div className="footer-link"><Link to="/about">About</Link></div>
 				</div>
 					&copy; {new Date().getFullYear()} mashtech created by{" "}
-					<a href="https://twitter.com/marusho_summers">marusho</a>
+					<a href="https://marusho.io/">marusho</a>
 			</footer>
 		</div>
 	);
