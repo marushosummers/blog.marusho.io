@@ -53,6 +53,7 @@ export const pageQuery = graphql`
 						}
 						allMarkdownRemark(
 							sort: { order: DESC, fields: [frontmatter___date] }
+    					filter: { frontmatter: { tags: { ne: "scrap" } } }
 						) {
 							edges {
 								node {
