@@ -25,7 +25,7 @@ const IndexPage = ({
 					property="og:image"
 					content={`${site.siteMetadata.siteUrl}${ogp_image}`}
 				/>
-				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:card" content="summary" />
 				<meta name="twitter:title" content={site.siteMetadata.title} />
 				<meta
 					name="twitter:description"

@@ -27,7 +27,7 @@ export default function Template({
 					property="og:image"
 					content={`${site.siteMetadata.siteUrl}${ogp_image}`}
 				/>
-				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:card" content="summary" />
 				<meta name="twitter:title" content={frontmatter.title} />
 				<meta
 					name="twitter:description"
