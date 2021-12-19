@@ -1,0 +1,47 @@
+---
+template: BlogPost
+path: /2021-12-19
+date: 2021-12-19T00:00:00Z
+title: 今日のスクラップ
+metaDescription: ''
+tags:
+  - scrap
+  - diary
+icon: 🗞
+---
+
+# スクラップ
+
+### [【マジで】サイバー演習シナリオの作り方【怖い】 - freee Developers Blog](https://developers.freee.co.jp/entry/howto-make-cyber-exercise-scenario)
+
+実際にセキュリティハックをするというのは(あたりまだけど)経験がなくて、実際やるならを初めて知れた気がします。
+
+こういう訓練はエンジニア心をくすぐるので良さそう。インシデントの対策や訓練は退屈なイメージがあったので。
+
+知らない単語がたくさんあったので調べる。
+
+PSIRT: Product Security Incident Response Team
+- セキュリティレベルの向上やインシデント発生時の対応を行う組織
+
+IdP: Identity Provider
+- SAMLにおける認証サーバ。IDaaSだと思ってよさそう。
+
+EDR: Endpoint Detection and Response
+- エンドポイントとの通信監視
+
+### [githubで人生を管理する](https://zenn.dev/hand_dot/articles/85c9640b7dcc66)
+
+GithubはMarkdownエディタとして優秀。なるほど。この記事を書くときにブラウザ上で書いてそのままコミットできるのは快適そう。
+
+日常タスクをIssueとProjectで管理するのもやってみよかな。Githubなら毎日見るし。ちなみにこの記事はmacのメモで書いてます。
+
+画像をアプロードできるのは嬉しい。自分のブログで扱う上でCORSとかキャッシュの懸念てあるのかな。(そういう利用は規約的に…という話はありそう)
+
+
+### [2021年サーバーサイドのエンジニアが使ってよかったもの10選 - KAYAC engineers' blog](https://techblog.kayac.com/2021/12/07/120000)
+
+GCP, デプロイ運用まわりで使えそうなサービス。こういうサービスの名前だけ頭の片隅に入れとくと、ひょんなことで役に立ったりする。環境が変わったり年次を重ねてもインプットを疎かにしない姿勢、見習います。
+
+### [Web3 とは何か？急速に注目を集める新たなトレンド | The HEADLINE](https://www.theheadline.jp/articles/539)
+
+無料部分だけ流し読み。Web3.0はまだ理念とか概念が強く語られる状態ぽい。確かにWeb2.0って言葉を見たのは2006年くらいの週刊アスキーでだったけれど、検索はGoogleに置き換わっていたし、その数年後にiPhoneやらFacebookが入ってきた記憶。で、振り返ってみたらこれがWeb2.0だったのかと思えるものだった。Web3.0も今後ユーザを引きつける新たなサービスが流行って、次の概念が生まれるころに実感できるのかな。
