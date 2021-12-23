@@ -85,6 +85,62 @@ module.exports = {
 				publisherId: `ca-pub-7961076646821939`,
 			},
 		},
+		{
+			resolve: `gatsby-plugin-feed`,
+			options: {
+				query: `
+				{
+					site {
+						siteMetadata {
+							title
+							description
+							siteUrl
+							site_url: siteUrl
+						}
+					}
+				}
+			`,
+				feeds: [{
+					serialize: ({
+						query: {
+							site,
+							allMarkdownRemark
+						}
+					}) => {
+						return allMarkdownRemark.nodes.map(node => {
+							return Object.assign({}, node.frontmatter, {
+								description: node.excerpt,
+								date: node.frontmatter.date,
+								url: site.siteMetadata.siteUrl + node.frontmatter.path,
+								guid: site.siteMetadata.siteUrl + node.frontmatter.path,
+								custom_elements: [{
+									"content:encoded": node.html
+								}],
+							})
+						})
+					},
+					query: `
+						{
+							allMarkdownRemark(
+								sort: { order: DESC, fields: [frontmatter___date] },
+							) {
+								nodes {
+									excerpt
+									html
+									frontmatter {
+										title
+										path
+										date
+									}
+								}
+							}
+						}
+					`,
+					output: "/rss.xml",
+					title: "Mashtech RSS Feed",
+				}, ],
+			},
+		},
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-netlify-cms`,
