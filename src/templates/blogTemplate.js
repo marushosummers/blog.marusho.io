@@ -52,9 +52,8 @@ export default function Template({
 						className="blog-post-content"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
-					<PostTags tags={frontmatter.tags} />
-
 				</article>
+				<PostTags tags={frontmatter.tags} />
 				<SNSSection
 					title={frontmatter.title}
 					articleUrl={`${data.site.siteMetadata.siteUrl}${frontmatter.path}`}
